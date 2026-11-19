@@ -1,7 +1,6 @@
-import org.w3c.dom.stylesheets.LinkStyle;
-
 import java.util.List;
 import java.util.Random;
+
 /**
  * Holds the list of possible secret words and picks one at random.
  * In Stage 2 you can replace the hardcoded list with words loaded from words.txt.
@@ -15,9 +14,15 @@ public class WordBank {
     );
 
     private final Random random = new Random();
+    private String lastWord;
 
-    /** Returns a random word from the list. */
+    /** Returns a random word from the list (never the same word twice in a row). */
     public String getRandomWord() {
-        return words.get(random.nextInt(words.size()));
+        String word;
+        do {
+            word = words.get(random.nextInt(words.size()));
+        } while (word.equals(lastWord) && words.size() > 1);
+        lastWord = word;
+        return word;
     }
 }
