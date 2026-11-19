@@ -1,4 +1,3 @@
-import java.util.Locale;
 import java.util.Scanner;
 
 public class ConsoleUI {
@@ -80,10 +79,10 @@ public class ConsoleUI {
             System.out.print("\n Play Again? (Y/N):");
             String input = scanner.nextLine().trim().toLowerCase();
 
-            if (input.equals("Y")){
+            if ("Y".equals(input)){
                 return true;
             }
-            if (input.equals("N")){
+            if ("N".equals(input)){
                 return false;
             }
             System.out.println("Please type y or n");
